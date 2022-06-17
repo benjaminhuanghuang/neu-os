@@ -36,7 +36,7 @@ _load_kernel:
   mov $0x0002, %CX    # read section 2
   mov $DEMOSEG, %AX   # set EX to address of buffer
   mov %ax, %ex
-  mov $$0x0200, %BX
+  mov $0x0200, %BX
   mov %0x02, %AH
   mov $4, %AL         # read 4 sections from the disk
   int $0x13
