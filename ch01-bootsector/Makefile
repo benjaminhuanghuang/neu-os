@@ -3,7 +3,7 @@ all: Image
 .PHONY=clean run-qemu
 
 run-qemu:
-	@qemu-system-i386 -boot a -fda bootsect.o
+	@qemu-system-i386 -boot a -fda bootsect
 
 bootsect.o: 
 	@as --32 bootsetc.s  -o bootsect
