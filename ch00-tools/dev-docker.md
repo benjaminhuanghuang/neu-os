@@ -8,3 +8,11 @@ docker run --rm -it -v "$PWD":/mnt/workspace -w /mnt/workspace gcc bash
 --workdir, -w Working directory inside the container
 
 ```
+
+
+## Insall qemu
+```
+sudo apt update
+
+apt install qemu-kvm
+```
