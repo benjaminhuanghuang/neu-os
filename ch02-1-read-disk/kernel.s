@@ -1,6 +1,6 @@
-.code 16
+.code16
 
-.text { color:}
+.text
 
 .equ DEMOSEG, $0x1020
 .equ LEN, 22
