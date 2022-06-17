@@ -14,5 +14,5 @@ docker run --rm -it -v "$PWD":/mnt/workspace -w /mnt/workspace gcc bash
 ```
 sudo apt update
 
-apt install qemu-kvm
+apt install qemu
 ```

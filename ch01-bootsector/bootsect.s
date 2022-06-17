@@ -5,11 +5,11 @@
 .global _bootstart
 
 # 16-real mode address = SEG<<4 + OFFEST
-.equ BOOTSEG, $0x07c0
+.equ BOOTSEG, 0x07c0
 
 .text
 
-ljmp $0x07c0, $_bootstart
+ljmp $BOOTSEG, $_bootstart
 
 _bootstart:
 #Get cursor position
