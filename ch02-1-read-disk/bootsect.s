@@ -26,30 +26,28 @@ _bootstart:
   mov %AX, %ES
   mov $_string, %BP
   mov $0x1301, %AX
-  mov $0x0007, %BX   # white
+  mov $0x0007, %BX    # white
   mov $12, %CX        # char count
   int $0x10
    
 
-_load_demo:
+_load_kernel:
   mov $0x0000, %DX    # header :DH, deriver A is 0: DL
   mov $0x0002, %CX    # read section 2
-  mov $DEMOSEG, %AX  # set EX to address of buffer
+  mov $DEMOSEG, %AX   # set EX to address of buffer
   mov %ax, %ex
-  mov $$0x0200, %bx
-  mov %0x02, %ah
-  mov $4, %al           # read 4 section from the disk
+  mov $$0x0200, %BX
+  mov %0x02, %AH
+  mov $4, %AL         # read 4 sections from the disk
   int $0x13
-  jnc demo_load_ok      # check CF
-  jmp _load_demo
+  jnc kernel_load_ok      # check CF
+  jmp _load_kernel
 
-demo_load_ok:
+kenrnel_load_ok:
   mov $DEMOSEG, %AX
   mov %ax, %ds
   ljmp $  0x1020
  
-
-
 
 _string:
   .ascii "Hello..."
@@ -57,6 +55,7 @@ _string:
 
 # fill 0s to address 510
 .= 510
+
 signature:
   .word 0xaa55   # little endian
 
