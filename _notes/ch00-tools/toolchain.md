@@ -39,6 +39,19 @@
   objdump -S hello.exe | less
 
   objdump -sym 
+
+
+  # dump as 16-bit asm code
+  objdump -m i8086 -S bootsect.o
+
+
+  # show sections
+  objdump -s demo
+
+  # display section headers
+  objdump --section-headers bootsect
+
+
 ```
 
 
