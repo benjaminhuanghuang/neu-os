@@ -4,18 +4,25 @@
 ```
 @as --32 bootsetc.s  -o bootsect
 ```
-会生成 ELF文件，文件中会包含ELF相关信息，BIOS需要的是纯粹的.s文件汇编后的结果
+会生成 ELF文件，文件中会包含ELF相关信息，文件size超出512 Bytes. 
+而BIOS需要的是纯粹的汇编代码汇编后的二进制内容
 
-需要使用objcopy 进行提取 
+因此需要使用objcopy 进行提取 
 ```
   objcopy -O binary bootsect.o
 ```
+
+执行
+```
+file bootsect.o
+```
+会显示bootsect.o是一个DOS/MBR boot sector
+
 
 提取.text 
 ```
   objcopy -O binary -j .text bootsect
 ```
-
 
 ## checkout put
 ```
@@ -36,8 +43,8 @@ file bootsect.o
 
 
 ## Link script
-
-
+gcc 链接器生成的起始地址是0x0530
+bootsector 的.txt section 的起始地址需要是0x0000
 
 检查结果
 ```
