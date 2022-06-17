@@ -6,10 +6,10 @@ run-qemu:
 	@qemu-system-i386 -boot a -fda bootsect
 
 bootsect.o: 
-	@as --32 bootsetc.s  -o bootsect
+	- as --32 bootsect.s  -o bootsect.o
 
-bootsect: bootsetc.o ld-bootest.ld
-	- ld -T ld-bootest.ld bootsetc.o -o bootsect
+bootsect: bootsect.o ld-bootsect.ld
+	- ld -T ld-bootest.ld bootsect.o -o bootsect
 	- objcopy -O binary -j .text bootsect       
 
 clean: 

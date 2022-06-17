@@ -7,23 +7,23 @@
 # 16-real mode address = SEG<<4 + OFFEST
 .equ BOOTSEG, $0x07c0
 
-.text
+#.text
 
-ljump $BOOTSEG, $_bootstart
+ljmp $BOOTSEG, $_bootstart
 
 _bootstart:
 #Get cursor position
   mov $0x03, %AH  
   int $0x10
     
- # put address of string to ES:BP   
+# put address of string to ES:BP   
   mov $BOOTSEG, %AX
-  mov %AX. %ES
+  mov %AX, %ES
   mov $_string, %BP
   mov $0x1301, %AX
   mov $0x0007, %BX   # white
   mov $12, %CX        # char count
-  int 0x10
+  int $0x10
    
 
 loop:
