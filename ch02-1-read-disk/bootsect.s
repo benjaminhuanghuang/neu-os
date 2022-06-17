@@ -43,7 +43,7 @@ _load_kernel:
   jnc kernel_load_ok  # check CF
   jmp _load_kernel
 
-kenrnel_load_ok:
+kernel_load_ok:
   mov $DEMOSEG, %AX
   mov %AX, %DS
   ljmp $0x1020, $0    # execute the kernel
