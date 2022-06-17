@@ -3,7 +3,7 @@
 .text { color:}
 
 .equ DEMOSEG, $0x1020
-.equ LEN, 8
+.equ LEN, 22
 
 
 show_text:
@@ -16,7 +16,7 @@ show_text:
 
   mov $msg, %BP
   mov $0x1301, %ax
-  mov $0x000a, %bx   # blue 
+  mov $0x000a, %bx   # green 
   mov $LEN, %CX      # char count
 
   int $0x10

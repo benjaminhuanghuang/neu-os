@@ -40,13 +40,13 @@ _load_kernel:
   mov %0x02, %AH
   mov $4, %AL         # read 4 sections from the disk
   int $0x13
-  jnc kernel_load_ok      # check CF
+  jnc kernel_load_ok  # check CF
   jmp _load_kernel
 
 kenrnel_load_ok:
   mov $DEMOSEG, %AX
-  mov %ax, %ds
-  ljmp $  0x1020
+  mov %AX, %DS
+  ljmp $0x1020, $0    # execute the kernel
  
 
 _string:
