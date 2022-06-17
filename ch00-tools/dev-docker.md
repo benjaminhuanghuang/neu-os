@@ -1,4 +1,5 @@
 
+# Build in linux docker
 
 ```
 docker run --rm -it -v "$PWD":/mnt/workspace -w /mnt/workspace gcc-qemu bash
@@ -9,10 +10,3 @@ docker run --rm -it -v "$PWD":/mnt/workspace -w /mnt/workspace gcc-qemu bash
 
 ```
 
-
-## Insall qemu
-```
-sudo apt update
-
-apt install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils
-```

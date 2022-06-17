@@ -42,7 +42,7 @@ file bootsect.o
 
 
 
-## Link script
+## Link
 gcc 链接器生成的起始地址是0x0530
 bootsector 的.txt section 的起始地址需要是0x0000
 
