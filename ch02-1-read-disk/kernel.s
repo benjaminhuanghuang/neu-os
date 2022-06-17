@@ -2,7 +2,7 @@
 
 .text
 
-.equ DEMOSEG, $0x1020
+.equ DEMOSEG, 0x1020
 .equ LEN, 22
 
 
@@ -11,7 +11,7 @@ show_text:
   mov $DEMOSEG, %AX
   mov %AX, %ES
   mov $0x03, %AH
-  mov %BH, %ES
+  xor %BH, %BH
   int $0x10
 
   mov $msg, %BP
@@ -23,6 +23,7 @@ show_text:
 
 loop_forever:
   jmp loop_forever
+  
 msg:
   .byte 13, 10
   .ascii "kernel is running."

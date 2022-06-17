@@ -20,12 +20,13 @@ kernel.o: kernel.s
 	as --32 kernel.s -o kernel.o
 
 Image: bootsect kernel
-	dd if=bootsect of= Image bs=512 count=1
-	dd if=demo of=Image bs=512 count=4 seek=1
-	echo "Image created"
+	dd if=bootsect of=Image bs=512 count=1
+	dd if=kernel of=Image bs=512 count=4 seek=1
+	@echo "Image created"
 
 clean: 
-	rm -f *.o bootsect 
+	rm -f *.o bootsect kernel
+
 
 
    

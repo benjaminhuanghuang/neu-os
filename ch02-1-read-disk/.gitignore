@@ -1,2 +1,5 @@
 *.o
 bootsect
+kernel
+Image
+
