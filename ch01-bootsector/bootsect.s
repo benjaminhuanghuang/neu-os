@@ -21,8 +21,8 @@ _bootstart:
   mov %AX, %ES
   mov $_string, %BP
   mov $0x1301, %AX
-  mov $0x0007, %BX   # white
-  mov $12, %CX        # char count
+  mov $0x0007, %BX    # white
+  #mov $12, %CX        # char count
   int $0x10
    
 
@@ -31,7 +31,7 @@ loop:
 
 
 _string:
-  .ascii "Hello..."
+  .ascii "Hello..!"
   .byte 13, 10, 13, 10    # new line
 
 # fill 0s to address 510
