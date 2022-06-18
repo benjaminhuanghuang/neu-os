@@ -20,3 +20,18 @@ https://www.bilibili.com/video/BV1Lx411i75U
 - GRUA
 - LILO
 - SysLinux  
+
+
+## Link Script
+```
+OUTPUT_FORMAT(elf32-i386)
+OUTPUT_ARCH(i386)
+
+SECTIONS {
+  # .text start from 0x0000
+  .text 0x00000: {
+    *(.text)
+  } 
+}
+
+```
